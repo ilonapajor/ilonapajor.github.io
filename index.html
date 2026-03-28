@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ilona Ayelén Pajor</title>
+  <style>
+    /* ── Palette ── */
+    :root {
+      --accent:   #b08060;
+      --accent2:  #c9956d;
+      --bg:       #fdf9f5;
+      --text:     #2e2620;
+      --muted:    #7a6a5a;
+      --divider:  #e0cfc0;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Georgia', serif;
+      font-size: 1rem;
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    /* ── Navbar ── */
+    nav {
+      background: #f9f5f0;
+      border-bottom: 2px solid var(--divider);
+      padding: .6rem 2rem;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: .5rem 1.5rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    nav .brand {
+      font-weight: 700;
+      color: var(--text);
+      font-size: 1rem;
+      text-decoration: none;
+      margin-right: auto;
+    }
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: .88rem;
+      font-family: 'Georgia', serif;
+    }
+    nav a:hover { color: var(--accent); }
+
+    /* ── Layout ── */
+    main {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 1.5rem 3rem;
+    }
+
+    /* ── Hero header ── */
+    .cv-hero {
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+      padding: 3rem 0 2rem;
+      border-bottom: 2px solid var(--divider);
+      margin-bottom: 2.5rem;
+    }
+
+    .cv-hero-text h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      letter-spacing: .04em;
+      margin: 0 0 .4rem;
+      color: var(--text);
+      text-transform: uppercase;
+    }
+
+    .cv-hero-text .subtitle {
+      font-size: .95rem;
+      font-weight: 700;
+      color: var(--text);
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      line-height: 1.5;
+      margin-bottom: 1rem;
+    }
+
+    .contact-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: .88rem;
+      color: var(--muted);
+    }
+
+    .contact-row a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+    .contact-row a:hover { color: var(--accent); }
+
+    /* ── Section headings ── */
+    h2 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      border-bottom: 2px solid var(--divider);
+      padding-bottom: .35rem;
+      margin-top: 2.2rem;
+      margin-bottom: 1.2rem;
+    }
+
+    /* ── Entry rows ── */
+    .cv-entry {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: .1rem 1.5rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .cv-entry .role {
+      font-weight: 700;
+      font-size: .97rem;
+      color: var(--text);
+    }
+
+    .cv-entry .date {
+      font-weight: 700;
+      font-size: .9rem;
+      color: var(--text);
+      white-space: nowrap;
+      text-align: right;
+    }
+
+    .cv-entry .org {
+      grid-column: 1 / -1;
+      font-size: .9rem;
+      color: var(--muted);
+    }
+
+    .cv-entry .detail {
+      grid-column: 1 / -1;
+      font-size: .9rem;
+      color: var(--text);
+      margin-top: .15rem;
+    }
+
+    /* ── Award list ── */
+    .award-item {
+      margin-bottom: 1rem;
+      font-size: .92rem;
+    }
+    .award-item .award-date {
+      color: var(--muted);
+      font-style: italic;
+      font-size: .85rem;
+    }
+
+    /* ── Skills chips ── */
+    .chip-row { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .5rem; }
+    .chip {
+      background: var(--divider);
+      color: var(--text);
+      border-radius: 20px;
+      padding: .2rem .85rem;
+      font-size: .83rem;
+    }
+
+    /* ── Footer ── */
+    .cv-footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: .8rem;
+      margin-top: 3rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--divider);
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .cv-hero { flex-direction: column; text-align: center; }
+      .cv-hero-text h1 { font-size: 2rem; }
+      .contact-row { justify-content: center; }
+      .cv-entry { grid-template-columns: 1fr; }
+      .cv-entry .date { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="brand" href="#">Ilona Ayelén Pajor</a>
+    <a href="#experience">Experience</a>
+    <a href="#education">Education</a>
+    <a href="#research">Research</a>
+    <a href="#awards">Awards</a>
+  </nav>
+
+  <main>
+
+    <div class="cv-hero">
+      <div class="cv-hero-text">
+        <h1>Ilona Ayelén Pajor</h1>
+        <div class="subtitle">
+          Bachelor in Political Science &amp; Government<br>
+          Specialist in Public Policies &amp; Gender Justice<br>
+          University Lecturer
+        </div>
+        <div class="contact-row">
+          <span>✉️ <a href="mailto:ilonapajorr@gmail.com">ilonapajorr@gmail.com</a></span>
+          <span>📍 Buenos Aires, Argentina</span>
+          <span>💼 <a href="https://linkedin.com/in/ilonapajor" target="_blank">linkedin.com/in/ilonapajor</a></span>
+        </div>
+      </div>
+    </div>
+
+    <h2 id="experience">Professional Experience</h2>
+
+    <div class="cv-entry">
+      <span class="role">Adjunct Professor</span>
+      <span class="date">Mar. 2024 – Present</span>
+      <span class="org">Universidad de Ciencias Empresariales y Sociales (UCES) — Resistencia, Tigre, Olivos &amp; Buenos Aires</span>
+      <span class="detail">Courses: Foundations of Economics I &amp; II — Bachelor's programmes in Marketing, International Trade, and Business Management.</span>
+    </div>
+
+    <div class="cv-entry">
+      <span class="role">Adjunct Professor</span>
+      <span class="date">Nov. 2023 – Dec. 2024</span>
+      <span class="org">Universidad de Ciencias Empresariales y Sociales (UCES) — Resistencia Campus</span>
+      <span class="detail">Courses: Political Science and Comparative Electoral Systems — Bachelor's programme in Political Science &amp; Government.</span>
+    </div>
+
+    <div class="cv-entry">
+      <span class="role">Member, Chaco Commercial Office — CAMACOL</span>
+      <span class="date">Jun. 2016 – Feb. 2017</span>
+      <span class="org">Latin Chamber of Commerce of the United States — Miami, USA</span>
+      <span class="detail">Organised international events: <em>Miami–Chaco Business Summit</em> (Sáenz Peña, Chaco, 2016) and <em>Commercial Mission to Paraguay</em> (Asunción, 2016).</span>
+    </div>
+
+    <div class="cv-entry">
+      <span class="role">Co-owner &amp; Director — Atrium Hotels</span>
+      <span class="date">Mar. 2016 – Mar. 2019</span>
+      <span class="org">Atrium Hotel (Resistencia, Chaco) &amp; Atrium Beach (Paso de la Patria, Corrientes)</span>
+      <span class="detail">Management, administration and strategic direction of two hospitality properties.</span>
+    </div>
+
+    <h2 id="research">Research</h2>
+
+    <div class="cv-entry">
+      <span class="role">Research Assistant</span>
+      <span class="date">Aug. 2025 – Present</span>
+      <span class="org">Universidad Nacional de Tres de Febrero (UNTREF)</span>
+      <span class="detail">Research group: <em>Structural Violence, Spaces and Social Subjects.</em> External Researcher at Universidad Nacional del Nordeste (UNNE) — Res. 1146/23 C.S.: <em>"Gender Gaps: Public Policies for Their Eradication in Private Organisations."</em></span>
+    </div>
+
+    <h2 id="education">Education</h2>
+
+    <div class="cv-entry">
+      <span class="role">Master's Degree in Gender Studies and Policies</span>
+      <span class="date">Mar. 2025 – Present</span>
+      <span class="org">Universidad Nacional de Tres de Febrero (UNTREF)</span>
+    </div>
+
+    <div class="cv-entry">
+      <span class="role">Specialisation in University Teaching</span>
+      <span class="date">Aug. 2023 – Feb. 2026</span>
+      <span class="org">Universidad Nacional del Nordeste (UNNE)</span>
+      <span class="detail">Final thesis submitted, pending oral defence. <strong>GPA: 9.69 / 10</strong></span>
+    </div>
+
+    <div class="cv-entry">
+      <span class="role">Specialisation in Public Policies &amp; Gender Justice</span>
+      <span class="date">Mar. 2021 – Jul. 2022</span>
+      <span class="org">CLACSO / FLACSO — Latin American Faculty of Social Sciences</span>
+      <span class="detail"><strong>GPA: 10 / 10</strong></span>
+    </div>
+
+    <div class="cv-entry">
+      <span class="role">Bachelor's Degree in Political Science &amp; Government</span>
+      <span class="date">Mar. 2019 – May 2023</span>
+      <span class="org">Universidad de Ciencias Empresariales y Sociales (UCES)</span>
+      <span class="detail"><strong>GPA: 9.90 / 10</strong></span>
+    </div>
+
+    <h2 id="awards">Awards &amp; Distinctions</h2>
+
+    <div class="award-item">
+      🏅 <strong>Best GPA of the 2023 cohort</strong> — Political Science &amp; Government, UCES
+      <div class="award-date">September 2024</div>
+    </div>
+
+    <div class="award-item">
+      🏆 <strong>Best historical GPA nationwide</strong> — Political Science &amp; Government, UCES
+      <div class="award-date">July 2023</div>
+    </div>
+
+    <div class="award-item">
+      📜 <strong>Certificate of Recognition</strong> — American Argentine Chamber of Commerce of Florida
+      <div class="award-date">February 2017</div>
+    </div>
+
+    <h2 id="extension">Extension &amp; Public Talks</h2>
+
+    <div class="cv-entry">
+      <span class="role">Speaker — Lecture Series "Politics Day to Day"</span>
+      <span class="date">Sep. 2024</span>
+      <span class="org">Universidad de Ciencias Empresariales y Sociales (UCES)</span>
+      <span class="detail">Talk: <em>"Gender-Based Violence: How Do We Know If We Are Making Progress?"</em></span>
+    </div>
+
+    <div class="cv-entry">
+      <span class="role">Speaker — Conference on Violence Against Women</span>
+      <span class="date">Oct. 2024</span>
+      <span class="org">UCES Faculty of Psychology</span>
+      <span class="detail">Topic: <em>"Violence Against Women: MESECVI and Intersectionality."</em></span>
+    </div>
+
+    <h2 id="courses">Courses &amp; Certifications</h2>
+
+    <div class="cv-entry">
+      <span class="role">Introduction to Data Analysis with R</span>
+      <span class="date">Nov. 2025</span>
+      <span class="org">Núcleo de Innovación Social</span>
+    </div>
+
+    <div class="cv-entry">
+      <span class="role">Specialised Programme "Python for Everybody"</span>
+      <span class="date">Aug. 2023</span>
+      <span class="org">University of Michigan</span>
+    </div>
+
+    <h2 id="volunteering">Volunteering</h2>
+
+    <div class="cv-entry">
+      <span class="role">Volunteer English Teacher</span>
+      <span class="date">Aug. 2024 – Dec. 2025</span>
+      <span class="org">English Language Centre — Resistencia, Chaco</span>
+      <span class="detail">Taught beginner-level English classes.</span>
+    </div>
+
+    <h2 id="skills">Skills</h2>
+
+    <div class="chip-row">
+      <span class="chip">Gender Policy Analysis</span>
+      <span class="chip">Public Policy</span>
+      <span class="chip">University Teaching</span>
+      <span class="chip">Electoral Systems</span>
+      <span class="chip">R (Data Analysis)</span>
+      <span class="chip">Python</span>
+      <span class="chip">Spanish (Native)</span>
+      <span class="chip">English (Advanced)</span>
+      <span class="chip">Academic Research</span>
+      <span class="chip">International Relations</span>
+    </div>
+
+    <div class="cv-footer">
+      &copy; 2026 Ilona Ayelén Pajor &middot; Buenos Aires, Argentina
+    </div>
+
+  </main>
+
+</body>
+</html>
