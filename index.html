@@ -4,6 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ilona Ayelén Pajor</title>
+
+  <!-- 5. Favicon: inline SVG monogram -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23b08060'/><text x='50%25' y='54%25' dominant-baseline='central' text-anchor='middle' font-family='Georgia,serif' font-size='15' font-weight='bold' fill='white'>IP</text></svg>">
+
   <style>
     /* ── Palette ── */
     :root {
@@ -13,6 +17,7 @@
       --text:     #2e2620;
       --muted:    #7a6a5a;
       --divider:  #e0cfc0;
+      --nav-h:    52px;
     }
 
     *, *::before, *::after { box-sizing: border-box; }
@@ -38,6 +43,7 @@
       position: sticky;
       top: 0;
       z-index: 100;
+      min-height: var(--nav-h);
     }
     nav .brand {
       font-weight: 700;
@@ -54,6 +60,23 @@
     }
     nav a:hover { color: var(--accent); }
 
+    /* 4. Language toggle button */
+    #lang-toggle {
+      background: none;
+      border: 1.5px solid var(--divider);
+      border-radius: 20px;
+      padding: .15rem .7rem;
+      font-family: 'Georgia', serif;
+      font-size: .8rem;
+      color: var(--muted);
+      cursor: pointer;
+      transition: border-color .2s, color .2s;
+    }
+    #lang-toggle:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
     /* ── Layout ── */
     main {
       max-width: 860px;
@@ -69,6 +92,17 @@
       padding: 3rem 0 2rem;
       border-bottom: 2px solid var(--divider);
       margin-bottom: 2.5rem;
+    }
+
+    .cv-hero-photo {
+      flex-shrink: 0;
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      border: 3px solid var(--divider);
+      box-shadow: 0 4px 16px rgba(0,0,0,.10);
     }
 
     .cv-hero-text h1 {
@@ -97,11 +131,7 @@
       font-size: .88rem;
       color: var(--muted);
     }
-
-    .contact-row a {
-      color: var(--muted);
-      text-decoration: none;
-    }
+    .contact-row a { color: var(--muted); text-decoration: none; }
     .contact-row a:hover { color: var(--accent); }
 
     /* ── Section headings ── */
@@ -115,6 +145,8 @@
       padding-bottom: .35rem;
       margin-top: 2.2rem;
       margin-bottom: 1.2rem;
+      /* 3. Offset for sticky navbar */
+      scroll-margin-top: calc(var(--nav-h) + 12px);
     }
 
     /* ── Entry rows ── */
@@ -124,44 +156,14 @@
       gap: .1rem 1.5rem;
       margin-bottom: 1.4rem;
     }
-
-    .cv-entry .role {
-      font-weight: 700;
-      font-size: .97rem;
-      color: var(--text);
-    }
-
-    .cv-entry .date {
-      font-weight: 700;
-      font-size: .9rem;
-      color: var(--text);
-      white-space: nowrap;
-      text-align: right;
-    }
-
-    .cv-entry .org {
-      grid-column: 1 / -1;
-      font-size: .9rem;
-      color: var(--muted);
-    }
-
-    .cv-entry .detail {
-      grid-column: 1 / -1;
-      font-size: .9rem;
-      color: var(--text);
-      margin-top: .15rem;
-    }
+    .cv-entry .role { font-weight: 700; font-size: .97rem; color: var(--text); }
+    .cv-entry .date { font-weight: 700; font-size: .9rem; color: var(--text); white-space: nowrap; text-align: right; }
+    .cv-entry .org  { grid-column: 1 / -1; font-size: .9rem; color: var(--muted); }
+    .cv-entry .detail { grid-column: 1 / -1; font-size: .9rem; color: var(--text); margin-top: .15rem; }
 
     /* ── Award list ── */
-    .award-item {
-      margin-bottom: 1rem;
-      font-size: .92rem;
-    }
-    .award-item .award-date {
-      color: var(--muted);
-      font-style: italic;
-      font-size: .85rem;
-    }
+    .award-item { margin-bottom: 1rem; font-size: .92rem; }
+    .award-item .award-date { color: var(--muted); font-style: italic; font-size: .85rem; }
 
     /* ── Skills chips ── */
     .chip-row { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .5rem; }
@@ -186,6 +188,7 @@
     /* ── Responsive ── */
     @media (max-width: 600px) {
       .cv-hero { flex-direction: column; text-align: center; }
+      .cv-hero-photo { width: 110px; height: 110px; }
       .cv-hero-text h1 { font-size: 2rem; }
       .contact-row { justify-content: center; }
       .cv-entry { grid-template-columns: 1fr; }
@@ -197,18 +200,20 @@
 
   <nav>
     <a class="brand" href="#">Ilona Ayelén Pajor</a>
-    <a href="#experience">Experience</a>
-    <a href="#education">Education</a>
-    <a href="#research">Research</a>
-    <a href="#awards">Awards</a>
+    <a href="#experience"  data-t="nav-experience">Experience</a>
+    <a href="#education"   data-t="nav-education">Education</a>
+    <a href="#research"    data-t="nav-research">Research</a>
+    <a href="#awards"      data-t="nav-awards">Awards</a>
+    <button id="lang-toggle" aria-label="Switch language" onclick="toggleLang()">ES</button>
   </nav>
 
   <main>
 
     <div class="cv-hero">
+      <img class="cv-hero-photo" src="foto.jpeg" alt="Ilona Ayelén Pajor" />
       <div class="cv-hero-text">
         <h1>Ilona Ayelén Pajor</h1>
-        <div class="subtitle">
+        <div class="subtitle" data-t="subtitle">
           Bachelor in Political Science &amp; Government<br>
           Specialist in Public Policies &amp; Gender Justice<br>
           University Lecturer
@@ -221,143 +226,151 @@
       </div>
     </div>
 
-    <h2 id="experience">Professional Experience</h2>
+    <!-- Professional Experience -->
+    <h2 id="experience" data-t="sec-experience">Professional Experience</h2>
 
     <div class="cv-entry">
-      <span class="role">Adjunct Professor</span>
-      <span class="date">Mar. 2024 – Present</span>
+      <span class="role" data-t="exp1-role">Adjunct Professor</span>
+      <span class="date">Mar. 2024 – <span data-t="present">Present</span></span>
       <span class="org">Universidad de Ciencias Empresariales y Sociales (UCES) — Resistencia, Tigre, Olivos &amp; Buenos Aires</span>
-      <span class="detail">Courses: Foundations of Economics I &amp; II — Bachelor's programmes in Marketing, International Trade, and Business Management.</span>
+      <span class="detail" data-t="exp1-detail">Courses: Foundations of Economics I &amp; II — Bachelor's programmes in Marketing, International Trade, and Business Management.</span>
     </div>
 
     <div class="cv-entry">
-      <span class="role">Adjunct Professor</span>
+      <span class="role" data-t="exp1-role">Adjunct Professor</span>
       <span class="date">Nov. 2023 – Dec. 2024</span>
       <span class="org">Universidad de Ciencias Empresariales y Sociales (UCES) — Resistencia Campus</span>
-      <span class="detail">Courses: Political Science and Comparative Electoral Systems — Bachelor's programme in Political Science &amp; Government.</span>
+      <span class="detail" data-t="exp2-detail">Courses: Political Science and Comparative Electoral Systems — Bachelor's programme in Political Science &amp; Government.</span>
     </div>
 
     <div class="cv-entry">
-      <span class="role">Member, Chaco Commercial Office — CAMACOL</span>
+      <span class="role" data-t="exp3-role">Member, Chaco Commercial Office — CAMACOL</span>
       <span class="date">Jun. 2016 – Feb. 2017</span>
       <span class="org">Latin Chamber of Commerce of the United States — Miami, USA</span>
-      <span class="detail">Organised international events: <em>Miami–Chaco Business Summit</em> (Sáenz Peña, Chaco, 2016) and <em>Commercial Mission to Paraguay</em> (Asunción, 2016).</span>
+      <span class="detail" data-t="exp3-detail">Organised international events: <em>Miami–Chaco Business Summit</em> (Sáenz Peña, Chaco, 2016) and <em>Commercial Mission to Paraguay</em> (Asunción, 2016).</span>
     </div>
 
     <div class="cv-entry">
-      <span class="role">Co-owner &amp; Director — Atrium Hotels</span>
+      <span class="role" data-t="exp4-role">Co-owner &amp; Director — Atrium Hotels</span>
       <span class="date">Mar. 2016 – Mar. 2019</span>
       <span class="org">Atrium Hotel (Resistencia, Chaco) &amp; Atrium Beach (Paso de la Patria, Corrientes)</span>
-      <span class="detail">Management, administration and strategic direction of two hospitality properties.</span>
+      <span class="detail" data-t="exp4-detail">Management, administration and strategic direction of two hospitality properties.</span>
     </div>
 
-    <h2 id="research">Research</h2>
+    <!-- Research -->
+    <h2 id="research" data-t="sec-research">Research</h2>
 
     <div class="cv-entry">
-      <span class="role">Research Assistant</span>
-      <span class="date">Aug. 2025 – Present</span>
+      <span class="role" data-t="res1-role">Research Assistant</span>
+      <span class="date">Aug. 2025 – <span data-t="present">Present</span></span>
       <span class="org">Universidad Nacional de Tres de Febrero (UNTREF)</span>
-      <span class="detail">Research group: <em>Structural Violence, Spaces and Social Subjects.</em> External Researcher at Universidad Nacional del Nordeste (UNNE) — Res. 1146/23 C.S.: <em>"Gender Gaps: Public Policies for Their Eradication in Private Organisations."</em></span>
+      <span class="detail" data-t="res1-detail">Research group: <em>Structural Violence, Spaces and Social Subjects.</em> External Researcher at Universidad Nacional del Nordeste (UNNE) — Res. 1146/23 C.S.: <em>"Gender Gaps: Public Policies for Their Eradication in Private Organisations."</em></span>
     </div>
 
-    <h2 id="education">Education</h2>
+    <!-- Education -->
+    <h2 id="education" data-t="sec-education">Education</h2>
 
     <div class="cv-entry">
-      <span class="role">Master's Degree in Gender Studies and Policies</span>
-      <span class="date">Mar. 2025 – Present</span>
+      <span class="role" data-t="edu1-role">Master's Degree in Gender Studies and Policies</span>
+      <span class="date">Mar. 2025 – <span data-t="present">Present</span></span>
       <span class="org">Universidad Nacional de Tres de Febrero (UNTREF)</span>
     </div>
 
     <div class="cv-entry">
-      <span class="role">Specialisation in University Teaching</span>
+      <span class="role" data-t="edu2-role">Specialisation in University Teaching</span>
       <span class="date">Aug. 2023 – Feb. 2026</span>
       <span class="org">Universidad Nacional del Nordeste (UNNE)</span>
-      <span class="detail">Final thesis submitted, pending oral defence. <strong>GPA: 9.69 / 10</strong></span>
+      <span class="detail" data-t="edu2-detail">Final thesis submitted, pending oral defence. <strong>GPA: 9.69 / 10</strong></span>
     </div>
 
     <div class="cv-entry">
-      <span class="role">Specialisation in Public Policies &amp; Gender Justice</span>
+      <span class="role" data-t="edu3-role">Specialisation in Public Policies &amp; Gender Justice</span>
       <span class="date">Mar. 2021 – Jul. 2022</span>
       <span class="org">CLACSO / FLACSO — Latin American Faculty of Social Sciences</span>
       <span class="detail"><strong>GPA: 10 / 10</strong></span>
     </div>
 
     <div class="cv-entry">
-      <span class="role">Bachelor's Degree in Political Science &amp; Government</span>
+      <span class="role" data-t="edu4-role">Bachelor's Degree in Political Science &amp; Government</span>
       <span class="date">Mar. 2019 – May 2023</span>
       <span class="org">Universidad de Ciencias Empresariales y Sociales (UCES)</span>
       <span class="detail"><strong>GPA: 9.90 / 10</strong></span>
     </div>
 
-    <h2 id="awards">Awards &amp; Distinctions</h2>
+    <!-- Awards -->
+    <h2 id="awards" data-t="sec-awards">Awards &amp; Distinctions</h2>
 
     <div class="award-item">
-      🏅 <strong>Best GPA of the 2023 cohort</strong> — Political Science &amp; Government, UCES
-      <div class="award-date">September 2024</div>
+      🏅 <strong data-t="award1-title">Best GPA of the 2023 cohort</strong> — Political Science &amp; Government, UCES
+      <div class="award-date" data-t="award1-date">September 2024</div>
     </div>
 
     <div class="award-item">
-      🏆 <strong>Best historical GPA nationwide</strong> — Political Science &amp; Government, UCES
-      <div class="award-date">July 2023</div>
+      🏆 <strong data-t="award2-title">Best historical GPA nationwide</strong> — Political Science &amp; Government, UCES
+      <div class="award-date" data-t="award2-date">July 2023</div>
     </div>
 
     <div class="award-item">
-      📜 <strong>Certificate of Recognition</strong> — American Argentine Chamber of Commerce of Florida
-      <div class="award-date">February 2017</div>
+      📜 <strong data-t="award3-title">Certificate of Recognition</strong> — American Argentine Chamber of Commerce of Florida
+      <div class="award-date" data-t="award3-date">February 2017</div>
     </div>
 
-    <h2 id="extension">Extension &amp; Public Talks</h2>
+    <!-- Extension & Public Talks -->
+    <h2 id="extension" data-t="sec-extension">Extension &amp; Public Talks</h2>
 
     <div class="cv-entry">
-      <span class="role">Speaker — Lecture Series "Politics Day to Day"</span>
+      <span class="role" data-t="ext1-role">Speaker — Lecture Series "Politics Day to Day"</span>
       <span class="date">Sep. 2024</span>
       <span class="org">Universidad de Ciencias Empresariales y Sociales (UCES)</span>
-      <span class="detail">Talk: <em>"Gender-Based Violence: How Do We Know If We Are Making Progress?"</em></span>
+      <span class="detail" data-t="ext1-detail">Talk: <em>"Gender-Based Violence: How Do We Know If We Are Making Progress?"</em></span>
     </div>
 
     <div class="cv-entry">
-      <span class="role">Speaker — Conference on Violence Against Women</span>
+      <span class="role" data-t="ext2-role">Speaker — Conference on Violence Against Women</span>
       <span class="date">Oct. 2024</span>
       <span class="org">UCES Faculty of Psychology</span>
-      <span class="detail">Topic: <em>"Violence Against Women: MESECVI and Intersectionality."</em></span>
+      <span class="detail" data-t="ext2-detail">Topic: <em>"Violence Against Women: MESECVI and Intersectionality."</em></span>
     </div>
 
-    <h2 id="courses">Courses &amp; Certifications</h2>
+    <!-- Courses & Certifications -->
+    <h2 id="courses" data-t="sec-courses">Courses &amp; Certifications</h2>
 
     <div class="cv-entry">
-      <span class="role">Introduction to Data Analysis with R</span>
+      <span class="role" data-t="crs1-role">Introduction to Data Analysis with R</span>
       <span class="date">Nov. 2025</span>
       <span class="org">Núcleo de Innovación Social</span>
     </div>
 
     <div class="cv-entry">
-      <span class="role">Specialised Programme "Python for Everybody"</span>
+      <span class="role" data-t="crs2-role">Specialised Programme "Python for Everybody"</span>
       <span class="date">Aug. 2023</span>
       <span class="org">University of Michigan</span>
     </div>
 
-    <h2 id="volunteering">Volunteering</h2>
+    <!-- Volunteering -->
+    <h2 id="volunteering" data-t="sec-volunteering">Volunteering</h2>
 
     <div class="cv-entry">
-      <span class="role">Volunteer English Teacher</span>
+      <span class="role" data-t="vol1-role">Volunteer English Teacher</span>
       <span class="date">Aug. 2024 – Dec. 2025</span>
       <span class="org">English Language Centre — Resistencia, Chaco</span>
-      <span class="detail">Taught beginner-level English classes.</span>
+      <span class="detail" data-t="vol1-detail">Taught beginner-level English classes.</span>
     </div>
 
-    <h2 id="skills">Skills</h2>
+    <!-- Skills -->
+    <h2 id="skills" data-t="sec-skills">Skills</h2>
 
-    <div class="chip-row">
-      <span class="chip">Gender Policy Analysis</span>
-      <span class="chip">Public Policy</span>
-      <span class="chip">University Teaching</span>
-      <span class="chip">Electoral Systems</span>
+    <div class="chip-row" id="skills-chips">
+      <span class="chip" data-t="sk1">Gender Policy Analysis</span>
+      <span class="chip" data-t="sk2">Public Policy</span>
+      <span class="chip" data-t="sk3">University Teaching</span>
+      <span class="chip" data-t="sk4">Electoral Systems</span>
       <span class="chip">R (Data Analysis)</span>
       <span class="chip">Python</span>
-      <span class="chip">Spanish (Native)</span>
-      <span class="chip">English (Advanced)</span>
-      <span class="chip">Academic Research</span>
-      <span class="chip">International Relations</span>
+      <span class="chip" data-t="sk7">Spanish (Native)</span>
+      <span class="chip" data-t="sk8">English (Advanced)</span>
+      <span class="chip" data-t="sk9">Academic Research</span>
+      <span class="chip" data-t="sk10">International Relations</span>
     </div>
 
     <div class="cv-footer">
@@ -365,6 +378,119 @@
     </div>
 
   </main>
+
+  <script>
+    // 4. Bilingual EN / ES toggle
+    const T = {
+      // Navbar
+      'nav-experience': { en: 'Experience',  es: 'Experiencia' },
+      'nav-education':  { en: 'Education',   es: 'Formación'   },
+      'nav-research':   { en: 'Research',    es: 'Investigación'},
+      'nav-awards':     { en: 'Awards',      es: 'Premios'     },
+      // Section headings
+      'sec-experience':  { en: 'Professional Experience',   es: 'Experiencia Profesional'      },
+      'sec-research':    { en: 'Research',                  es: 'Investigación'                },
+      'sec-education':   { en: 'Education',                 es: 'Formación Académica'          },
+      'sec-awards':      { en: 'Awards &amp; Distinctions', es: 'Premios y Distinciones'       },
+      'sec-extension':   { en: 'Extension &amp; Public Talks', es: 'Extensión y Charlas Públicas' },
+      'sec-courses':     { en: 'Courses &amp; Certifications', es: 'Cursos y Certificaciones'  },
+      'sec-volunteering':{ en: 'Volunteering',              es: 'Voluntariado'                 },
+      'sec-skills':      { en: 'Skills',                    es: 'Habilidades'                  },
+      // Hero
+      'subtitle': {
+        en: 'Bachelor in Political Science &amp; Government<br>Specialist in Public Policies &amp; Gender Justice<br>University Lecturer',
+        es: 'Licenciada en Ciencia Política y Gobierno<br>Especialista en Políticas Públicas y Justicia de Género<br>Docente Universitaria'
+      },
+      // Common
+      'present': { en: 'Present', es: 'Actualidad' },
+      // Experience
+      'exp1-role':   { en: 'Adjunct Professor', es: 'Profesora Adjunta' },
+      'exp1-detail': {
+        en: 'Courses: Foundations of Economics I &amp; II — Bachelor\'s programmes in Marketing, International Trade, and Business Management.',
+        es: 'Materias: Fundamentos de Economía I y II — Licenciaturas en Marketing, Comercio Internacional y Administración de Empresas.'
+      },
+      'exp2-detail': {
+        en: 'Courses: Political Science and Comparative Electoral Systems — Bachelor\'s programme in Political Science &amp; Government.',
+        es: 'Materias: Ciencia Política y Sistemas Electorales Comparados — Licenciatura en Ciencia Política y Gobierno.'
+      },
+      'exp3-role':   { en: 'Member, Chaco Commercial Office — CAMACOL', es: 'Integrante, Oficina Comercial Chaco — CAMACOL' },
+      'exp3-detail': {
+        en: 'Organised international events: <em>Miami–Chaco Business Summit</em> (Sáenz Peña, Chaco, 2016) and <em>Commercial Mission to Paraguay</em> (Asunción, 2016).',
+        es: 'Organizó eventos internacionales: <em>Miami–Chaco Business Summit</em> (Sáenz Peña, Chaco, 2016) y <em>Misión Comercial a Paraguay</em> (Asunción, 2016).'
+      },
+      'exp4-role':   { en: 'Co-owner &amp; Director — Atrium Hotels', es: 'Copropietaria y Directora — Atrium Hotels' },
+      'exp4-detail': {
+        en: 'Management, administration and strategic direction of two hospitality properties.',
+        es: 'Gestión, administración y dirección estratégica de dos establecimientos hoteleros.'
+      },
+      // Research
+      'res1-role':   { en: 'Research Assistant', es: 'Ayudante de Investigación' },
+      'res1-detail': {
+        en: 'Research group: <em>Structural Violence, Spaces and Social Subjects.</em> External Researcher at Universidad Nacional del Nordeste (UNNE) — Res. 1146/23 C.S.: <em>"Gender Gaps: Public Policies for Their Eradication in Private Organisations."</em>',
+        es: 'Grupo de investigación: <em>Violencia Estructural, Espacios y Sujetos Sociales.</em> Investigadora externa — Universidad Nacional del Nordeste (UNNE) — Res. 1146/23 C.S.: <em>«Brechas de Género: Políticas Públicas para su Erradicación en Organizaciones Privadas».</em>'
+      },
+      // Education
+      'edu1-role': { en: "Master's Degree in Gender Studies and Policies", es: 'Maestría en Estudios y Políticas de Género' },
+      'edu2-role': { en: 'Specialisation in University Teaching',           es: 'Especialización en Docencia Universitaria'  },
+      'edu2-detail': {
+        en: 'Final thesis submitted, pending oral defence. <strong>GPA: 9.69 / 10</strong>',
+        es: 'Tesis final presentada, pendiente de defensa oral. <strong>Promedio: 9,69 / 10</strong>'
+      },
+      'edu3-role': { en: 'Specialisation in Public Policies &amp; Gender Justice', es: 'Especialización en Políticas Públicas y Justicia de Género' },
+      'edu4-role': { en: "Bachelor's Degree in Political Science &amp; Government", es: 'Licenciatura en Ciencia Política y Gobierno' },
+      // Awards
+      'award1-title': { en: 'Best GPA of the 2023 cohort',   es: 'Mejor promedio de la promoción 2023'   },
+      'award1-date':  { en: 'September 2024',                 es: 'Septiembre de 2024'                   },
+      'award2-title': { en: 'Best historical GPA nationwide', es: 'Mejor promedio histórico a nivel nacional' },
+      'award2-date':  { en: 'July 2023',                      es: 'Julio de 2023'                        },
+      'award3-title': { en: 'Certificate of Recognition',     es: 'Certificado de Reconocimiento'        },
+      'award3-date':  { en: 'February 2017',                  es: 'Febrero de 2017'                      },
+      // Extension
+      'ext1-role':   { en: 'Speaker — Lecture Series "Politics Day to Day"',  es: 'Disertante — Ciclo de Charlas «La Política Día a Día»' },
+      'ext1-detail': {
+        en: 'Talk: <em>"Gender-Based Violence: How Do We Know If We Are Making Progress?"</em>',
+        es: 'Charla: <em>«Violencia de Género: ¿Cómo Sabemos si Estamos Avanzando?»</em>'
+      },
+      'ext2-role':   { en: 'Speaker — Conference on Violence Against Women',  es: 'Disertante — Congreso sobre Violencia contra la Mujer' },
+      'ext2-detail': {
+        en: 'Topic: <em>"Violence Against Women: MESECVI and Intersectionality."</em>',
+        es: 'Tema: <em>«Violencia contra la Mujer: MESECVI e Interseccionalidad».</em>'
+      },
+      // Courses
+      'crs1-role': { en: 'Introduction to Data Analysis with R',       es: 'Introducción al Análisis de Datos con R'   },
+      'crs2-role': { en: 'Specialised Programme "Python for Everybody"', es: 'Programa Especializado «Python para Todos»' },
+      // Volunteering
+      'vol1-role':   { en: 'Volunteer English Teacher', es: 'Docente Voluntaria de Inglés' },
+      'vol1-detail': { en: 'Taught beginner-level English classes.', es: 'Dictó clases de inglés para nivel principiante.' },
+      // Skills
+      'sk1':  { en: 'Gender Policy Analysis',  es: 'Análisis de Políticas de Género' },
+      'sk2':  { en: 'Public Policy',           es: 'Políticas Públicas'              },
+      'sk3':  { en: 'University Teaching',     es: 'Docencia Universitaria'          },
+      'sk4':  { en: 'Electoral Systems',       es: 'Sistemas Electorales'            },
+      'sk7':  { en: 'Spanish (Native)',        es: 'Español (Nativo)'                },
+      'sk8':  { en: 'English (Advanced)',      es: 'Inglés (Avanzado)'               },
+      'sk9':  { en: 'Academic Research',       es: 'Investigación Académica'         },
+      'sk10': { en: 'International Relations', es: 'Relaciones Internacionales'      },
+    };
+
+    function setLang(lang) {
+      document.documentElement.lang = lang;
+      document.querySelectorAll('[data-t]').forEach(el => {
+        const key = el.getAttribute('data-t');
+        if (T[key] && T[key][lang] !== undefined) {
+          el.innerHTML = T[key][lang];
+        }
+      });
+      const btn = document.getElementById('lang-toggle');
+      btn.textContent = lang === 'en' ? 'ES' : 'EN';
+      btn.setAttribute('aria-label', lang === 'en' ? 'Cambiar a español' : 'Switch to English');
+    }
+
+    function toggleLang() {
+      const current = document.documentElement.lang;
+      setLang(current === 'en' ? 'es' : 'en');
+    }
+  </script>
 
 </body>
 </html>
