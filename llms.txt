@@ -1,0 +1,8 @@
+# Ilona Ayelén Pajor
+
+> Personal website of Ilona Ayelén Pajor, political scientist from Argentina, specialist in public policies and gender justice and in university teaching. Adjunct professor at UCES and researcher at UNTREF (FemTech; technology, gender and cognitive capitalism) and UNNE.
+
+## CV
+
+- [CV en español (Markdown)](https://ilonapajor.github.io/cv-es.md): trayectoria completa en español
+- [CV in English (Markdown)](https://ilonapajor.github.io/cv-en.md): full academic and professional record in English
