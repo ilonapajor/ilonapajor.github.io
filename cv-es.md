@@ -63,7 +63,7 @@ Marzo de 2019 – Mayo de 2023
 
 - **«Manual para sobrevivir la investigación»**, taller metodológico en las Jornadas de Investigación de la UNTREF. Diseñado y dictado junto al grupo de investigación *Violencia Estructural, Espacios y Sujetos Sociales*. Septiembre de 2026.
 - **Americas Regional Consultation on Gender Equality.** Participante en *A Youth Vision for the World's Future* (AYVWF), iniciativa de SDSN Youth y la Fundación Ford. Mayo de 2026.
-- **«Violencia contra la mujer: MESECVI e interseccionalidad».** Disertante en el Congreso sobre Violencia contra la Mujer, Facultad de Psicología, UCES. Octubre de 2024.
+- **«Violencia contra la mujer: MESECVI e interseccionalidad».** Disertante en una charla en la Facultad de Psicología, UCES. Octubre de 2024.
 - **«Violencia de género: ¿cómo sabemos si estamos avanzando?».** Disertante en el ciclo de charlas *La Política Día a Día*, UCES. Septiembre de 2024.
 
 ## Cursos y certificaciones

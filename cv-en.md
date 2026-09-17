@@ -63,7 +63,7 @@ March 2019 – May 2023
 
 - **"A Manual for Surviving Research"** (Manual para sobrevivir la investigación), methodological workshop at the UNTREF Research Conference. Designed and delivered together with the research group *Structural Violence, Spaces and Social Subjects*. September 2026.
 - **Americas Regional Consultation on Gender Equality.** Participant in *A Youth Vision for the World's Future* (AYVWF), an initiative led by SDSN Youth and the Ford Foundation. May 2026.
-- **"Violence Against Women: MESECVI and Intersectionality."** Speaker at the Conference on Violence Against Women, Faculty of Psychology, UCES. October 2024.
+- **"Violence Against Women: MESECVI and Intersectionality."** Speaker at a talk at the Faculty of Psychology, UCES. October 2024.
 - **"Gender-Based Violence: How Do We Know If We Are Making Progress?"** Speaker in the lecture series *Politics Day to Day*, UCES. September 2024.
 
 ## Courses and certifications

@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="es" data-accent="ink-blue">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CV · Ilona Ayelén Pajor</title>
+  <meta name="description" content="Curriculum vitae de Ilona Ayelén Pajor." />
+  <link rel="alternate" type="text/markdown" hreflang="es" href="cv-es.md" />
+  <link rel="alternate" type="text/markdown" hreflang="en" href="cv-en.md" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='16' fill='%231D1D1F'/><text x='50%25' y='54%25' dominant-baseline='central' text-anchor='middle' font-family='Georgia,serif' font-size='16' fill='white'>IP</text></svg>">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #FFFFFF; --ink: #1D1D1F; --mute: #6E6E73; --rule: #E8E8EA; --accent: #2F4B7C;
+      --serif: 'Newsreader', Georgia, 'Times New Roman', serif;
+      --sans:  'Figtree', 'Segoe UI', system-ui, sans-serif;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) { --bg: #141416; --ink: #EDEDEF; --mute: #9A9AA0; --rule: #2A2A2E; --accent: #9DB4DD; }
+    }
+    :root[data-theme="dark"] { --bg: #141416; --ink: #EDEDEF; --mute: #9A9AA0; --rule: #2A2A2E; --accent: #9DB4DD; }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      margin: 0; background: var(--bg); color: var(--ink);
+      font-family: var(--serif); font-size: 1.08rem; line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); text-underline-offset: 3px; text-decoration-thickness: 1px; overflow-wrap: anywhere; }
+    :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+    .wrap { max-width: 44rem; margin: 0 auto; padding: 0 1.5rem; }
+
+    header.top { border-bottom: 1px solid var(--rule); }
+    header.top .wrap {
+      display: flex; align-items: center; justify-content: space-between; gap: .75rem 1rem; flex-wrap: wrap;
+      padding-top: 1rem; padding-bottom: 1rem; font-family: var(--sans); font-size: .92rem;
+    }
+    .back { color: var(--mute); text-decoration: none; }
+    .back:hover { color: var(--ink); }
+    .tools { display: flex; align-items: center; gap: .9rem; flex-wrap: wrap; }
+    .tools button, .tools a.tool {
+      font: inherit; font-size: .85rem; background: none; color: var(--mute);
+      border: 1px solid var(--rule); border-radius: 6px; padding: .25rem .65rem; cursor: pointer; text-decoration: none;
+    }
+    .tools button:hover, .tools a.tool:hover { color: var(--ink); border-color: var(--mute); }
+    .lang { display: inline-flex; gap: .15rem; }
+    .lang button { border: 0; padding: .15rem .4rem; }
+    .lang button[aria-pressed="true"] { color: var(--ink); font-weight: 600; text-decoration: underline; text-underline-offset: 4px; }
+
+    main { padding-top: 2.5rem; padding-bottom: 3rem; }
+    [data-block] { display: none; }
+    [data-block].on { display: block; }
+
+    h1 { font-weight: 500; font-size: 2.1rem; line-height: 1.15; margin: 0 0 .5rem; }
+    h1 + p { font-family: var(--sans); color: var(--mute); font-size: .98rem; margin: 0 0 1rem; }
+    ul.contact {
+      list-style: none; padding: 0; margin: 0 0 .5rem;
+      font-family: var(--sans); font-size: .92rem; color: var(--mute);
+      display: flex; flex-wrap: wrap; gap: .2rem 1.25rem;
+    }
+    h2 {
+      font-weight: 500; font-size: 1.35rem; color: var(--accent);
+      margin: 2.4rem 0 .9rem; padding-bottom: .45rem; border-bottom: 1px solid var(--rule);
+    }
+    h3 { font-weight: 500; font-size: 1.08rem; line-height: 1.4; margin: 1.1rem 0 0; }
+    p.when { font-family: var(--sans); font-size: .85rem; color: var(--mute); margin: .1rem 0 .3rem; }
+    p { margin: 0 0 .5rem; }
+    ul { margin: .25rem 0 .5rem; padding-left: 1.1rem; }
+    li { margin: .25rem 0; }
+    li::marker { color: var(--mute); }
+
+    footer { border-top: 1px solid var(--rule); padding: 1.25rem 0 2rem; font-family: var(--sans); font-size: .85rem; color: var(--mute); }
+
+    @media (max-width: 640px) {
+      body { font-size: 1.03rem; }
+      h1 { font-size: 1.75rem; }
+      h2 { font-size: 1.22rem; margin-top: 2rem; }
+      main { padding-top: 1.75rem; }
+      ul.contact { flex-direction: column; }
+    }
+
+    @media print {
+      :root { --bg: #fff; --ink: #000; --mute: #444; --rule: #ccc; --accent: #000; }
+      header.top, footer { display: none; }
+      body { font-size: 10.5pt; line-height: 1.45; }
+      main { padding: 0; }
+      .wrap { max-width: none; padding: 0; }
+      a { color: inherit; text-decoration: none; }
+      h1 { font-size: 20pt; }
+      h2 { font-size: 13pt; margin-top: 14pt; break-after: avoid; }
+      h3 { break-after: avoid; }
+      li, p { break-inside: avoid; }
+      @page { margin: 16mm 16mm; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="back" href="./"><span data-es>← Volver a la página</span><span data-en hidden>← Back to homepage</span></a>
+    <div class="tools">
+      <button type="button" id="print"><span data-es>Guardar PDF</span><span data-en hidden>Save as PDF</span></button>
+      <div class="lang" role="group" aria-label="Idioma / Language">
+        <button type="button" data-lang="es" aria-pressed="true">ES</button>
+        <button type="button" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <article data-block="es" lang="es" class="on">
+<h1>Ilona Ayelén Pajor</h1>
+<p>Licenciada en Ciencia Política y Gobierno. Especialista en Políticas Públicas y Justicia de Género. Especialista en Docencia Universitaria. Docente universitaria e investigadora.</p>
+<ul class="contact">
+<li>Correo: <a href="mailto:ilonapajorr@gmail.com">ilonapajorr@gmail.com</a></li>
+<li>LinkedIn: <a href="https://linkedin.com/in/ilonapajor">https://linkedin.com/in/ilonapajor</a></li>
+<li>Sitio web: <a href="https://ilonapajor.github.io">https://ilonapajor.github.io</a></li>
+<li>Ubicación: Buenos Aires, Argentina</li>
+</ul>
+<h2>Docencia universitaria</h2>
+<h3>Profesora Adjunta, Universidad de Ciencias Empresariales y Sociales (UCES)</h3>
+<p class="when">Noviembre de 2023 – Actualidad</p>
+<ul>
+<li><strong>Economía e Industrias Creativas.</strong> Licenciatura en Publicidad. Desde 2026.</li>
+<li><strong>Fundamentos de Economía I y II.</strong> Licenciaturas en Marketing, Comercio Exterior y Dirección de Negocios. Sede Resistencia desde marzo de 2024; sedes Tigre, Olivos y Buenos Aires desde marzo de 2025.</li>
+<li><strong>Ciencia Política y Sistemas Electorales Comparados.</strong> Licenciatura en Ciencia Política y Gobierno. Sede Resistencia. Noviembre de 2023 a diciembre de 2024.</li>
+</ul>
+<h2>Investigación</h2>
+<h3>Integrante del grupo de investigación <em>Violencia Estructural, Espacios y Sujetos Sociales</em>, Universidad Nacional de Tres de Febrero (UNTREF)</h3>
+<p class="when">Agosto de 2025 – Actualidad</p>
+<ul>
+<li>Desarrolla su propia línea de investigación sobre FemTech: vínculos entre tecnología, género y capitalismo cognitivo.</li>
+</ul>
+<h3>Investigadora Externa, Universidad Nacional del Nordeste (UNNE)</h3>
+<p class="when">2023 – Actualidad</p>
+<ul>
+<li>Proyecto «Brechas de género: políticas públicas para su erradicación en organizaciones privadas» (Res. 1146/23 C.S.).</li>
+</ul>
+<h2>Publicaciones y ponencias</h2>
+<ul>
+<li>Pajor, I. A. (2026). <em>De la hoguera a la pantalla: FemTech, control del cuerpo menstruante y biopolítica de la fertilidad</em>. Ponencia presentada el 24 de junio de 2026 en el Segundo Congreso Nacional de Estudios Interdisciplinares sobre Diversidad y Disidencias Sexuales y de Género. Acta en proceso de publicación.</li>
+</ul>
+<h2>Formación</h2>
+<h3>Maestría en Estudios y Políticas de Género, UNTREF</h3>
+<p class="when">Marzo de 2025 – Actualidad</p>
+<h3>Especialización en Docencia Universitaria, UNNE</h3>
+<p class="when">Agosto de 2023 – 2026</p>
+<ul>
+<li>Trabajo final: «De la abstracción numérica al territorio lúdico: una propuesta curricular en Ciencias Empresariales».</li>
+<li>Calificación del trabajo final: 10, con mérito.</li>
+</ul>
+<h3>Especialización en Políticas Públicas y Justicia de Género, CLACSO / FLACSO</h3>
+<p class="when">Marzo de 2021 – Julio de 2022</p>
+<ul>
+<li>Promedio: 10 / 10.</li>
+</ul>
+<h3>Licenciatura en Ciencia Política y Gobierno, UCES</h3>
+<p class="when">Marzo de 2019 – Mayo de 2023</p>
+<ul>
+<li>Promedio: 9,90 / 10.</li>
+</ul>
+<h2>Premios y distinciones</h2>
+<ul>
+<li><strong>Mejor promedio de la promoción 2023</strong>, Ciencia Política y Gobierno, UCES. Septiembre de 2024.</li>
+<li><strong>Mejor promedio histórico a nivel nacional</strong>, Ciencia Política y Gobierno, UCES. Julio de 2023.</li>
+<li><strong>Certificado de Reconocimiento</strong>, American Argentine Chamber of Commerce of Florida. Febrero de 2017.</li>
+</ul>
+<h2>Talleres, charlas y participación</h2>
+<ul>
+<li><strong>«Manual para sobrevivir la investigación»</strong>, taller metodológico en las Jornadas de Investigación de la UNTREF. Diseñado y dictado junto al grupo de investigación <em>Violencia Estructural, Espacios y Sujetos Sociales</em>. Septiembre de 2026.</li>
+<li><strong>Americas Regional Consultation on Gender Equality.</strong> Participante en <em>A Youth Vision for the World's Future</em> (AYVWF), iniciativa de SDSN Youth y la Fundación Ford. Mayo de 2026.</li>
+<li><strong>«Violencia contra la mujer: MESECVI e interseccionalidad».</strong> Disertante en una charla en la Facultad de Psicología, UCES. Octubre de 2024.</li>
+<li><strong>«Violencia de género: ¿cómo sabemos si estamos avanzando?».</strong> Disertante en el ciclo de charlas <em>La Política Día a Día</em>, UCES. Septiembre de 2024.</li>
+</ul>
+<h2>Cursos y certificaciones</h2>
+<ul>
+<li><strong>Iniciación al uso de la Inteligencia Artificial Generativa en el ámbito de la educación superior</strong>, UCES. Septiembre de 2026.</li>
+<li><strong>Introducción al Análisis de Datos con R</strong>, Núcleo de Innovación Social. Noviembre de 2025.</li>
+<li><strong>Ciencia y Feminismo</strong>, Ecofeminita (estudios de género). Septiembre de 2023.</li>
+<li><strong>Programa especializado Python para Todos</strong>, University of Michigan. Agosto de 2023.</li>
+</ul>
+<h2>Experiencia profesional</h2>
+<h3>Socia, Atrium Hoteles</h3>
+<p class="when">Marzo de 2016 – Actualidad</p>
+<ul>
+<li>Socia desde marzo de 2016.</li>
+<li>A cargo de la gestión y administración de Atrium Hotel (Resistencia, Chaco) y Atrium Beach (Paso de la Patria, Corrientes) hasta marzo de 2024.</li>
+</ul>
+<h3>Miembro de la Oficina Comercial de Chaco, CAMACOL (Cámara de Comercio Latina de los Estados Unidos, Miami)</h3>
+<p class="when">Junio de 2016 – Febrero de 2017</p>
+<ul>
+<li>Organización de eventos internacionales: Enlace Empresarial Miami–Chaco (Sáenz Peña, Chaco, 2016) y Misión Comercial a Paraguay (Asunción, 2016).</li>
+</ul>
+<h2>Voluntariado</h2>
+<h3>Docente voluntaria de inglés, English Language Centre (Resistencia, Chaco)</h3>
+<p class="when">Agosto de 2024 – Diciembre de 2025</p>
+<ul>
+<li>Dictado de clases de inglés para nivel principiante.</li>
+</ul>
+<h2>Habilidades</h2>
+<ul>
+<li><strong>Áreas de especialización:</strong> análisis de políticas de género, tecnología y género (FemTech), políticas públicas, investigación académica, docencia universitaria y diseño curricular, sistemas electorales y relaciones internacionales.</li>
+<li><strong>Herramientas:</strong> R para análisis de datos, Python e inteligencia artificial generativa aplicada a la educación superior.</li>
+<li><strong>Idiomas:</strong> español (nativo) e inglés (avanzado).</li>
+</ul>
+  </article>
+  <article data-block="en" lang="en">
+<h1>Ilona Ayelén Pajor</h1>
+<p>Bachelor in Political Science and Government. Specialist in Public Policies and Gender Justice. Specialist in University Teaching. University lecturer and researcher.</p>
+<ul class="contact">
+<li>Email: <a href="mailto:ilonapajorr@gmail.com">ilonapajorr@gmail.com</a></li>
+<li>LinkedIn: <a href="https://linkedin.com/in/ilonapajor">https://linkedin.com/in/ilonapajor</a></li>
+<li>Website: <a href="https://ilonapajor.github.io">https://ilonapajor.github.io</a></li>
+<li>Location: Buenos Aires, Argentina</li>
+</ul>
+<h2>University teaching</h2>
+<h3>Adjunct Professor, Universidad de Ciencias Empresariales y Sociales (UCES)</h3>
+<p class="when">November 2023 – Present</p>
+<ul>
+<li><strong>Economics and Creative Industries.</strong> Bachelor's in Advertising. Since 2026.</li>
+<li><strong>Foundations of Economics I and II.</strong> Bachelor's in Marketing, Foreign Trade and Business Management. Resistencia campus from March 2024; Tigre, Olivos and Buenos Aires campuses since March 2025.</li>
+<li><strong>Political Science and Comparative Electoral Systems.</strong> Bachelor's in Political Science and Government. Resistencia campus. November 2023 to December 2024.</li>
+</ul>
+<h2>Research</h2>
+<h3>Member of the research group <em>Structural Violence, Spaces and Social Subjects</em> (Violencia Estructural, Espacios y Sujetos Sociales), Universidad Nacional de Tres de Febrero (UNTREF)</h3>
+<p class="when">August 2025 – Present</p>
+<ul>
+<li>Develops her own research line on FemTech: the links between technology, gender and cognitive capitalism.</li>
+</ul>
+<h3>External Researcher, Universidad Nacional del Nordeste (UNNE)</h3>
+<p class="when">2023 – Present</p>
+<ul>
+<li>Project "Gender Gaps: Public Policies for Their Eradication in Private Organisations" (Res. 1146/23 C.S.).</li>
+</ul>
+<h2>Publications and papers</h2>
+<ul>
+<li>Pajor, I. A. (2026). <em>De la hoguera a la pantalla: FemTech, control del cuerpo menstruante y biopolítica de la fertilidad</em> [From the stake to the screen: FemTech, control of the menstruating body and the biopolitics of fertility]. Paper presented on 24 June 2026 at the Segundo Congreso Nacional de Estudios Interdisciplinares sobre Diversidad y Disidencias Sexuales y de Género. Proceedings in press.</li>
+</ul>
+<h2>Education</h2>
+<h3>Master's Degree in Gender Studies and Policies, UNTREF</h3>
+<p class="when">March 2025 – Present</p>
+<h3>Specialisation in University Teaching, UNNE</h3>
+<p class="when">August 2023 – 2026</p>
+<ul>
+<li>Final project: "De la abstracción numérica al territorio lúdico: una propuesta curricular en Ciencias Empresariales" [From numerical abstraction to playful territory: a curricular proposal in Business Sciences].</li>
+<li>Final project grade: 10, with merit.</li>
+</ul>
+<h3>Specialisation in Public Policies and Gender Justice, CLACSO / FLACSO</h3>
+<p class="when">March 2021 – July 2022</p>
+<ul>
+<li>GPA: 10 / 10.</li>
+</ul>
+<h3>Bachelor's Degree in Political Science and Government, UCES</h3>
+<p class="when">March 2019 – May 2023</p>
+<ul>
+<li>GPA: 9.90 / 10.</li>
+</ul>
+<h2>Awards and distinctions</h2>
+<ul>
+<li><strong>Best GPA of the 2023 graduating class</strong>, Political Science and Government, UCES. September 2024.</li>
+<li><strong>Best historical GPA nationwide</strong>, Political Science and Government, UCES. July 2023.</li>
+<li><strong>Certificate of Recognition</strong>, American Argentine Chamber of Commerce of Florida. February 2017.</li>
+</ul>
+<h2>Workshops, talks and participation</h2>
+<ul>
+<li><strong>"A Manual for Surviving Research"</strong> (Manual para sobrevivir la investigación), methodological workshop at the UNTREF Research Conference. Designed and delivered together with the research group <em>Structural Violence, Spaces and Social Subjects</em>. September 2026.</li>
+<li><strong>Americas Regional Consultation on Gender Equality.</strong> Participant in <em>A Youth Vision for the World's Future</em> (AYVWF), an initiative led by SDSN Youth and the Ford Foundation. May 2026.</li>
+<li><strong>"Violence Against Women: MESECVI and Intersectionality."</strong> Speaker at a talk at the Faculty of Psychology, UCES. October 2024.</li>
+<li><strong>"Gender-Based Violence: How Do We Know If We Are Making Progress?"</strong> Speaker in the lecture series <em>Politics Day to Day</em>, UCES. September 2024.</li>
+</ul>
+<h2>Courses and certifications</h2>
+<ul>
+<li><strong>Introduction to the Use of Generative Artificial Intelligence in Higher Education</strong>, UCES. September 2026.</li>
+<li><strong>Introduction to Data Analysis with R</strong>, Núcleo de Innovación Social. November 2025.</li>
+<li><strong>Science and Feminism</strong>, Ecofeminita (gender studies). September 2023.</li>
+<li><strong>Python for Everybody specialisation</strong>, University of Michigan. August 2023.</li>
+</ul>
+<h2>Professional experience</h2>
+<h3>Partner, Atrium Hotels</h3>
+<p class="when">March 2016 – Present</p>
+<ul>
+<li>Partner since March 2016.</li>
+<li>Managed and administered Atrium Hotel (Resistencia, Chaco) and Atrium Beach (Paso de la Patria, Corrientes) until March 2024.</li>
+</ul>
+<h3>Member of the Chaco Commercial Office, CAMACOL (Latin Chamber of Commerce of the United States, Miami)</h3>
+<p class="when">June 2016 – February 2017</p>
+<ul>
+<li>Organised international events: the Miami–Chaco Business Link (Sáenz Peña, Chaco, 2016) and the Commercial Mission to Paraguay (Asunción, 2016).</li>
+</ul>
+<h2>Volunteering</h2>
+<h3>Volunteer English Teacher, English Language Centre (Resistencia, Chaco)</h3>
+<p class="when">August 2024 – December 2025</p>
+<ul>
+<li>Taught beginner-level English classes.</li>
+</ul>
+<h2>Skills</h2>
+<ul>
+<li><strong>Areas of expertise:</strong> gender policy analysis, technology and gender (FemTech), public policy, academic research, university teaching and curriculum design, electoral systems and international relations.</li>
+<li><strong>Tools:</strong> R for data analysis, Python and generative AI applied to higher education.</li>
+<li><strong>Languages:</strong> Spanish (native) and English (advanced).</li>
+</ul>
+  </article>
+</main>
+
+<footer class="wrap">
+  <span data-es>Versión en texto para herramientas de IA: <a href="cv-es.md" download="CV-Ilona-Pajor-ES.md">cv-es.md</a></span>
+  <span data-en hidden>Plain-text version for AI tools: <a href="cv-en.md" download="CV-Ilona-Pajor-EN.md">cv-en.md</a></span>
+</footer>
+
+<script>
+  function setLang(lang) {
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-block]').forEach(el => el.classList.toggle('on', el.dataset.block === lang));
+    document.querySelectorAll('[data-es]').forEach(el => el.hidden = lang !== 'es');
+    document.querySelectorAll('[data-en]').forEach(el => el.hidden = lang !== 'en');
+    document.querySelectorAll('.lang button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.lang === lang)));
+    document.title = (lang === 'es' ? 'CV · ' : 'CV · ') + 'Ilona Ayelén Pajor';
+    try { localStorage.setItem('cv-lang', lang); } catch (e) {}
+  }
+  document.querySelectorAll('.lang button').forEach(b => b.addEventListener('click', () => setLang(b.dataset.lang)));
+  document.getElementById('print').addEventListener('click', () => window.print());
+
+  let initial = (navigator.language || '').toLowerCase().startsWith('es') ? 'es' : 'en';
+  const fromUrl = new URLSearchParams(location.search).get('lang');
+  try {
+    const saved = localStorage.getItem('cv-lang');
+    if (saved === 'en' || saved === 'es') initial = saved;
+  } catch (e) {}
+  if (fromUrl === 'en' || fromUrl === 'es') initial = fromUrl;
+  setLang(initial);
+</script>
+</body>
+</html>
